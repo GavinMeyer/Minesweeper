@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqdg1417xro8l"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_5hwi3"]
+[ext_resource type="PackedScene" uid="uid://d2457qhsjpk21" path="res://main_menu.tscn" id="2_r1o7w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1cmkp"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_k3q62"]
+font_size = 20
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_5hwi3")
+matrixLength = 4
+mineCount = 12
+isMenuEnabled = true
+metadata/_edit_lock_ = true
+
+[node name="Backboard" type="Polygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(1, 0, 1, 1, 0, 1, 0, 0)
+
+[node name="MainMenu" parent="." instance=ExtResource("2_r1o7w")]
+
+[node name="VictoryText" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "."
+label_settings = SubResource("LabelSettings_1cmkp")
+uppercase = true
+
+[node name="FlagText" type="Label" parent="."]
+visible = false
+offset_right = 48.0
+offset_bottom = 24.0
+text = "Flags: 000"
+label_settings = SubResource("LabelSettings_k3q62")
+
+[connection signal="start" from="MainMenu" to="." method="_on_main_menu_start"]

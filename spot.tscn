@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://col1hprnip3sh"]
+
+[ext_resource type="Script" path="res://spot.gd" id="1_78466"]
+[ext_resource type="LabelSettings" uid="uid://b6elbq7oqrksb" path="res://label2.tres" id="2_44v7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8506"]
+size = Vector2(128, 128)
+
+[node name="Spot" type="Node2D"]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_78466")
+metadata/_edit_group_ = true
+
+[node name="Mine" type="Polygon2D" parent="."]
+visible = false
+color = Color(1, 0.454902, 0.0862745, 1)
+polygon = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
+metadata/_edit_lock_ = true
+
+[node name="NumberLabel" type="Label" parent="."]
+visible = false
+offset_left = -36.0
+offset_top = -92.0
+offset_right = 37.0
+offset_bottom = 86.0
+text = "0"
+label_settings = ExtResource("2_44v7s")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Cover" type="Polygon2D" parent="."]
+color = Color(0.695503, 0.695503, 0.695503, 1)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+metadata/_edit_lock_ = true
+
+[node name="Flag" type="Polygon2D" parent="."]
+visible = false
+color = Color(0.890196, 0, 0, 1)
+polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[node name="ClickDetect" type="Area2D" parent="."]
+
+[node name="ClickCollision" type="CollisionShape2D" parent="ClickDetect"]
+shape = SubResource("RectangleShape2D_q8506")
+
+[connection signal="mouse_entered" from="ClickDetect" to="." method="_on_click_detect_mouse_entered"]
+[connection signal="mouse_exited" from="ClickDetect" to="." method="_on_click_detect_mouse_exited"]

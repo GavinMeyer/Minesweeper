@@ -1,0 +1,110 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2457qhsjpk21"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_alcmi"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_alcmi")
+metadata/_edit_lock_ = true
+
+[node name="Difficulty" type="OptionButton" parent="."]
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 248.0
+offset_bottom = 95.0
+item_count = 5
+selected = 0
+popup/item_0/text = "Easy"
+popup/item_0/id = 0
+popup/item_1/text = "Moderate"
+popup/item_1/id = 1
+popup/item_2/text = "Hard"
+popup/item_2/id = 2
+popup/item_3/text = "Ultra Hard"
+popup/item_3/id = 3
+popup/item_4/text = "Custom "
+popup/item_4/id = 4
+
+[node name="MC" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 128.0
+offset_right = 132.0
+offset_bottom = 154.0
+text = "mines: 0"
+uppercase = true
+
+[node name="ML" type="Label" parent="."]
+offset_left = 256.0
+offset_top = 128.0
+offset_right = 397.0
+offset_bottom = 154.0
+text = "board length: 0"
+uppercase = true
+
+[node name="Up1" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 168.0
+offset_right = 88.0
+offset_bottom = 199.0
+text = "^"
+
+[node name="MegaUp1" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 208.0
+offset_right = 88.0
+offset_bottom = 262.0
+scale = Vector2(1, 0.76)
+text = "^
+^"
+
+[node name="MegaDown1" type="Button" parent="."]
+offset_left = 104.0
+offset_top = 208.0
+offset_right = 128.0
+offset_bottom = 262.0
+scale = Vector2(1, 0.76)
+text = "v
+v"
+
+[node name="Down1" type="Button" parent="."]
+offset_left = 104.0
+offset_top = 168.0
+offset_right = 128.0
+offset_bottom = 199.0
+text = "v"
+
+[node name="Up2" type="Button" parent="."]
+offset_left = 256.0
+offset_top = 168.0
+offset_right = 280.0
+offset_bottom = 199.0
+text = "^"
+
+[node name="Down2" type="Button" parent="."]
+offset_left = 296.0
+offset_top = 168.0
+offset_right = 320.0
+offset_bottom = 199.0
+text = "v"
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 288.0
+offset_right = 170.0
+offset_bottom = 319.0
+text = "START GAME"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 256.0
+offset_top = 288.0
+offset_right = 362.0
+offset_bottom = 320.0
+text = "QUIT"
+
+[connection signal="pressed" from="Up1" to="." method="_on_up_1_pressed"]
+[connection signal="pressed" from="MegaUp1" to="." method="_on_mega_up_1_pressed"]
+[connection signal="pressed" from="MegaDown1" to="." method="_on_mega_down_1_pressed"]
+[connection signal="pressed" from="Down1" to="." method="_on_down_1_pressed"]
+[connection signal="button_down" from="Up2" to="." method="_on_up_2_button_down"]
+[connection signal="pressed" from="Down2" to="." method="_on_down_2_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
